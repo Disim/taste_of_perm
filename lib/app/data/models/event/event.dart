@@ -8,9 +8,11 @@ class Event with _$Event {
   factory Event({
     required String uuid,
     required String title,
+    required String description,
     required String notice,
     required String link,
     required String source,
+    @Default(false) bool visited,
     String? image,
   }) = _Event;
 

@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/about_event/bindings/about_event_binding.dart';
 import '../modules/about_event/views/about_event_view.dart';
+import '../modules/filter/bindings/filter_binding.dart';
+import '../modules/filter/views/filter_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.ABOUT_EVENT,
       page: () => const AboutEventView(),
       binding: AboutEventBinding(),
+    ),
+    GetPage(
+      name: _Paths.FILTER,
+      page: () => const FilterView(),
+      binding: FilterBinding(),
     ),
   ];
 }

@@ -22,9 +22,11 @@ Event _$EventFromJson(Map<String, dynamic> json) {
 mixin _$Event {
   String get uuid => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
+  String get description => throw _privateConstructorUsedError;
   String get notice => throw _privateConstructorUsedError;
   String get link => throw _privateConstructorUsedError;
   String get source => throw _privateConstructorUsedError;
+  bool get visited => throw _privateConstructorUsedError;
   String? get image => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,9 +42,11 @@ abstract class $EventCopyWith<$Res> {
   $Res call(
       {String uuid,
       String title,
+      String description,
       String notice,
       String link,
       String source,
+      bool visited,
       String? image});
 }
 
@@ -61,9 +65,11 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
   $Res call({
     Object? uuid = null,
     Object? title = null,
+    Object? description = null,
     Object? notice = null,
     Object? link = null,
     Object? source = null,
+    Object? visited = null,
     Object? image = freezed,
   }) {
     return _then(_value.copyWith(
@@ -74,6 +80,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       notice: null == notice
           ? _value.notice
@@ -87,6 +97,10 @@ class _$EventCopyWithImpl<$Res, $Val extends Event>
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String,
+      visited: null == visited
+          ? _value.visited
+          : visited // ignore: cast_nullable_to_non_nullable
+              as bool,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -105,9 +119,11 @@ abstract class _$$EventImplCopyWith<$Res> implements $EventCopyWith<$Res> {
   $Res call(
       {String uuid,
       String title,
+      String description,
       String notice,
       String link,
       String source,
+      bool visited,
       String? image});
 }
 
@@ -124,9 +140,11 @@ class __$$EventImplCopyWithImpl<$Res>
   $Res call({
     Object? uuid = null,
     Object? title = null,
+    Object? description = null,
     Object? notice = null,
     Object? link = null,
     Object? source = null,
+    Object? visited = null,
     Object? image = freezed,
   }) {
     return _then(_$EventImpl(
@@ -137,6 +155,10 @@ class __$$EventImplCopyWithImpl<$Res>
       title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: null == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       notice: null == notice
           ? _value.notice
@@ -150,6 +172,10 @@ class __$$EventImplCopyWithImpl<$Res>
           ? _value.source
           : source // ignore: cast_nullable_to_non_nullable
               as String,
+      visited: null == visited
+          ? _value.visited
+          : visited // ignore: cast_nullable_to_non_nullable
+              as bool,
       image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -164,9 +190,11 @@ class _$EventImpl implements _Event {
   _$EventImpl(
       {required this.uuid,
       required this.title,
+      required this.description,
       required this.notice,
       required this.link,
       required this.source,
+      this.visited = false,
       this.image});
 
   factory _$EventImpl.fromJson(Map<String, dynamic> json) =>
@@ -177,17 +205,22 @@ class _$EventImpl implements _Event {
   @override
   final String title;
   @override
+  final String description;
+  @override
   final String notice;
   @override
   final String link;
   @override
   final String source;
   @override
+  @JsonKey()
+  final bool visited;
+  @override
   final String? image;
 
   @override
   String toString() {
-    return 'Event(uuid: $uuid, title: $title, notice: $notice, link: $link, source: $source, image: $image)';
+    return 'Event(uuid: $uuid, title: $title, description: $description, notice: $notice, link: $link, source: $source, visited: $visited, image: $image)';
   }
 
   @override
@@ -197,16 +230,19 @@ class _$EventImpl implements _Event {
             other is _$EventImpl &&
             (identical(other.uuid, uuid) || other.uuid == uuid) &&
             (identical(other.title, title) || other.title == title) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
             (identical(other.notice, notice) || other.notice == notice) &&
             (identical(other.link, link) || other.link == link) &&
             (identical(other.source, source) || other.source == source) &&
+            (identical(other.visited, visited) || other.visited == visited) &&
             (identical(other.image, image) || other.image == image));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, uuid, title, notice, link, source, image);
+  int get hashCode => Object.hash(runtimeType, uuid, title, description, notice,
+      link, source, visited, image);
 
   @JsonKey(ignore: true)
   @override
@@ -226,9 +262,11 @@ abstract class _Event implements Event {
   factory _Event(
       {required final String uuid,
       required final String title,
+      required final String description,
       required final String notice,
       required final String link,
       required final String source,
+      final bool visited,
       final String? image}) = _$EventImpl;
 
   factory _Event.fromJson(Map<String, dynamic> json) = _$EventImpl.fromJson;
@@ -238,11 +276,15 @@ abstract class _Event implements Event {
   @override
   String get title;
   @override
+  String get description;
+  @override
   String get notice;
   @override
   String get link;
   @override
   String get source;
+  @override
+  bool get visited;
   @override
   String? get image;
   @override
