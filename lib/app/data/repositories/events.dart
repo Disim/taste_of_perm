@@ -8,8 +8,8 @@ class EventsRepository {
   EventsRepository({required this.apiClient});
   final hiveService = Get.find<HiveService>();
 
-  getAll() {
-    return apiClient.getAll();
+  getEvents([String? source]) async {
+    return await apiClient.getEvents(source);
   }
 
   bool checkVisits(String uuid) {

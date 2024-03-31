@@ -7,24 +7,26 @@ part of 'event.dart';
 // **************************************************************************
 
 _$EventImpl _$$EventImplFromJson(Map<String, dynamic> json) => _$EventImpl(
-      uuid: json['uuid'] as String,
+      id: json['id'] as String,
       title: json['title'] as String,
-      description: json['description'] as String,
       notice: json['notice'] as String,
-      link: json['link'] as String,
       source: json['source'] as String,
+      image: json['image'] as String,
+      link: json['link'] as String,
+      category: json['category'] as String,
+      description: json['description'] as String? ?? '',
       visited: json['visited'] as bool? ?? false,
-      image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$$EventImplToJson(_$EventImpl instance) =>
     <String, dynamic>{
-      'uuid': instance.uuid,
+      'id': instance.id,
       'title': instance.title,
-      'description': instance.description,
       'notice': instance.notice,
-      'link': instance.link,
       'source': instance.source,
-      'visited': instance.visited,
       'image': instance.image,
+      'link': instance.link,
+      'category': instance.category,
+      'description': instance.description,
+      'visited': instance.visited,
     };

@@ -7,16 +7,20 @@ class EventsApiClient {
   final Dio httpClient;
   EventsApiClient({required this.httpClient});
 
-  Future<List<Event>> getAll() async {
+  Future<List<Event>> getEvents([String? source]) async {
+    final path =
+        source == null ? 'events?limit=0' : 'events?limit=0&source=$source';
     try {
-      var response = await httpClient.get('events/');
+      final response = await httpClient.get(path);
       if (response.statusCode! < 300) {
-        Map<String, dynamic> jsonResponse = json.decode(response.data);
-        return jsonResponse['data'].map((obj) => Event.fromJson(obj)).toList();
+        final List jsonResponse = response.data;
+        return jsonResponse.map((obj) => Event.fromJson(obj)).toList();
       } else {
         print('Error -getAll');
       }
-    } catch (_) {}
+    } catch (_) {
+      print(_);
+    }
     return [];
   }
 }

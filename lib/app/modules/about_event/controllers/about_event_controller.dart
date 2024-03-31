@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:taste_of_perm/app/data/models/event/event.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class AboutEventController extends GetxController {
   final Event _event = Get.arguments;
@@ -10,18 +11,15 @@ class AboutEventController extends GetxController {
   String get source => _event.source;
   String? get image => _event.image;
 
-  @override
-  void onInit() {
-    super.onInit();
+  Future<void> openLink() async {
+    if (!await launchUrl(Uri.parse(link))) {
+      throw Exception('Could not launch $link');
+    }
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
+  Future<void> openSource() async {
+    if (!await launchUrl(Uri.parse(source))) {
+      throw Exception('Could not launch $source');
+    }
   }
 }

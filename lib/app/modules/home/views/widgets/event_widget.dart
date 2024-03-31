@@ -15,6 +15,8 @@ class EventWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String name = event.source.replaceAll('https://', '');
+
     return GestureDetector(
       onTap: () => onTap(),
       child: Card.outlined(
@@ -45,21 +47,17 @@ class EventWidget extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'data',
+                            name,
                             style: Theme.of(context).textTheme.titleMedium,
                           ),
                           Text(
-                            'data',
+                            event.category,
                             style: Theme.of(context).textTheme.bodyMedium,
                           ),
                         ],
                       ),
                     ],
                   ),
-                  // FilledButton.tonal(
-                  //   onPressed: () {},
-                  //   child: Text(event.visited ? 'Посещено' : 'Не посещено'),
-                  // )
                   InputChip(
                     label: Text(event.visited ? 'Посещено' : 'Не посещено'),
                     side: BorderSide(style: BorderStyle.none),
@@ -71,17 +69,12 @@ class EventWidget extends StatelessWidget {
                 ],
               ),
             ),
-            event.image != null
-                ? Image.network(
-                    height: 250,
-                    width: double.infinity,
-                    event.image ?? '',
-                    fit: BoxFit.cover,
-                  )
-                : Divider(
-                    height: 0,
-                    color: Colors.grey,
-                  ),
+            Image.network(
+              height: 250,
+              width: double.infinity,
+              event.image,
+              fit: BoxFit.cover,
+            ),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
@@ -95,11 +88,13 @@ class EventWidget extends StatelessWidget {
                     event.notice,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
-                  const SizedBox(height: 32),
-                  Text(
-                    event.notice,
-                    style: Theme.of(context).textTheme.bodyMedium,
-                  ),
+                  if (event.description.isNotEmpty) ...[
+                    const SizedBox(height: 32),
+                    Text(
+                      event.description,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ],
                 ],
               ),
             )
