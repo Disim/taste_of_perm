@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 import '../controllers/about_event_controller.dart';
 
 class AboutEventView extends GetView<AboutEventController> {
-  const AboutEventView({Key? key}) : super(key: key);
+  const AboutEventView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,19 +34,19 @@ class AboutEventView extends GetView<AboutEventController> {
                   children: [
                     FilledButton.tonal(
                       onPressed: () => controller.openSource(),
-                      child: Text('Узнать подробнее'),
+                      child: const Text('Узнать подробнее'),
                     ),
                     Row(
                       children: [
                         IconButton.outlined(
                           onPressed: () => controller.openLink(),
-                          icon: Icon(Icons.web),
+                          icon: const Icon(Icons.web),
                         ),
                       ],
                     )
                   ],
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [Text(controller.notice)],

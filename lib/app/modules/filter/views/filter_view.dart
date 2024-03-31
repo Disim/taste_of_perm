@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../controllers/filter_controller.dart';
 
 class FilterView extends GetView<FilterController> {
-  const FilterView({Key? key}) : super(key: key);
+  const FilterView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

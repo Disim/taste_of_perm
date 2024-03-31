@@ -38,8 +38,8 @@ class EventWidget extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      CircleAvatar(),
-                      SizedBox(
+                      const CircleAvatar(),
+                      const SizedBox(
                         width: 16,
                       ),
                       Column(
@@ -60,10 +60,10 @@ class EventWidget extends StatelessWidget {
                   ),
                   InputChip(
                     label: Text(event.visited ? 'Посещено' : 'Не посещено'),
-                    side: BorderSide(style: BorderStyle.none),
+                    side: const BorderSide(style: BorderStyle.none),
                     backgroundColor:
                         event.visited ? Colors.purple[200] : Colors.purple[50],
-                    padding: EdgeInsets.all(0),
+                    padding: const EdgeInsets.all(0),
                     onSelected: (bool value) => onTapState(),
                   ),
                 ],

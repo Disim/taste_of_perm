@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 
 class Category {
   Category(this.name, this.displayName, this.state);

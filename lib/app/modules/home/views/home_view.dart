@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:taste_of_perm/app/modules/home/views/widgets/aggregator_preview.dart';
 import 'package:taste_of_perm/app/modules/home/views/widgets/event_widget.dart';
@@ -7,7 +6,7 @@ import 'package:taste_of_perm/app/modules/home/views/widgets/event_widget.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+  const HomeView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -122,7 +121,7 @@ class HomeView extends GetView<HomeController> {
             ),
             Visibility(
               visible: !controller.loaded(),
-              child: Center(
+              child: const Center(
                 child: CircularProgressIndicator(),
               ),
             ),
